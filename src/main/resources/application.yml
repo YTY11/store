@@ -1,0 +1,29 @@
+spring:
+  # 数据源
+  datasource:
+    url: jdbc:mysql://localhost:3306/store # mysql数据库连接地址 （store）数据库名
+    username: root # 用户名
+    password: adminyang # 密码
+    driver-class-name: com.mysql.cj.jdbc.Driver # 驱动
+  servlet:
+    multipart:
+      max-file-size: 10MB # 指定上载文件允许的最大大小
+      max-request-size: 15MB # 指定multipart/form-data请求允许的最大大小
+
+
+# 启动端口号
+server:
+  port: 9000
+mybatis:
+  configuration:
+    # 打印sql语句
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # mapper接口配置
+  mapper-locations: classpath:mapper/*.xml
+
+# 定义全局常量 通过@value("${user.address.max-count}") 注解来使用
+# 例：@value("${user.address.max-count}")
+#     private Integr COUNT
+user:
+  address:
+    max-count: 20
